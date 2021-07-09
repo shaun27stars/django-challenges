@@ -1,0 +1,20 @@
+{% extends 'application.html' %}
+{% load static %}
+{% block page_title %}
+  {{ month|title }} Challenge
+{% endblock %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static "challenges/show.css" %}"/>
+<link rel="stylesheet" href="{% static "challenges/header.css" %}"/>
+{% endblock %}
+
+{% block content %}
+  {% include './partials/header.html' %}
+  <h1>Challenge for {{ month|title }}</h1>
+  {% if challenge_text %}
+    <h2>{{ challenge_text }}</h2>
+  {% else %}
+    <p class='fallback'>There is no challenge for this month.</p>
+  {% endif %}
+{% endblock %}
